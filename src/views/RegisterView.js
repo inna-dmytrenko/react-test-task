@@ -5,12 +5,12 @@ import AssignmentReturnedTwoToneIcon from '@material-ui/icons/AssignmentReturned
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Modal from '@material-ui/core/Modal'
-import { authOperations } from '../redux/auth'
 import TextField from '@material-ui/core/TextField'
 import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import { authOperations } from '../redux/auth'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10
@@ -67,7 +67,7 @@ export default function RegisterView() {
     setOpen(false)
   }
   const dispatch = useDispatch()
-  const [name, setName] = useState('')
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleChange = ({ target: { name, value } }) => {

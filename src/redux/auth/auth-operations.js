@@ -14,9 +14,9 @@ const signup = createAsyncThunk('auth/signup', async (credentials) => {
   try {
     const { data } = await axios.post('/api/users/signup', credentials)
     token.set(data.token)
-    console.log(data)
+
     alert('Success register')
-    console.log(data)
+
     return data
   } catch (error) {
     alert('Please enter a valid email address')
@@ -26,7 +26,6 @@ const logIn = createAsyncThunk('auth/login', async (credentials) => {
   try {
     const { data } = await axios.post('/api/users/login', credentials)
     token.set(data.data.token)
-    console.log(data)
 
     return data.data
   } catch (error) {}

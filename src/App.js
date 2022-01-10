@@ -4,7 +4,7 @@ import ContainerHead from './components/Container/Container'
 import { Route, Routes } from 'react-router-dom'
 import { Suspense } from 'react'
 import PrivateRoute from './components/PrivateRoute'
-import PublicRoute from './components/PublicRoute'
+
 import HomeView from './views/HomeView'
 import TodosView from './views/TodosView'
 import RegisterView from './views/RegisterView'
@@ -22,7 +22,6 @@ function App() {
 
   return (
     <ContainerHead>
-      {/* <p>hhh</p> */}
       <AppBar />
 
       <Routes>
@@ -30,21 +29,15 @@ function App() {
         <Route path="/login" element={<LoginView />} />
         <Route path="/signup" element={<RegisterView />} />
         <Route path="/logout" element={<LogoutView />} />
-        <Route path="/todos" element={<TodosView />} />
+        <Route
+          path="/todos"
+          element={
+            <PrivateRoute>
+              <TodosView isLoggedIn={isLoggedIn} />
+            </PrivateRoute>
+          }
+        />
         <Route path="/:pageName" element={<NotFoundView />} />
-        {/* <p>PrivateRoute</p> */}
-        {/* <Suspense fallback={<p>Loading...</p>}> */}
-        {/* <PublicRoute path="/" exact component={HomeView} />
-        <PublicRoute path="/singup" restricted exact component={RegisterView} /> */}
-        {/* <PublicRoute
-          path="/login"
-          redirectTo="/todos"
-          restricted
-          exact
-          component={LoginView}
-        /> */}
-        {/* <PrivateRoute path="/todos" redirectTo="login" component={TodosView} /> */}
-        {/* </Suspense> */}
       </Routes>
     </ContainerHead>
   )
