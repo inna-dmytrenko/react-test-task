@@ -2,7 +2,7 @@ import './App.css'
 import { AppBar } from './components/AppBar/AppBar'
 import ContainerHead from './components/Container/Container'
 import { Route, Routes } from 'react-router-dom'
-import { Suspense } from 'react'
+// import { Suspense } from 'react'
 import PrivateRoute from './components/PrivateRoute'
 
 import HomeView from './views/HomeView'
@@ -11,7 +11,6 @@ import RegisterView from './views/RegisterView'
 import LoginView from './views/LoginView'
 import NotFoundView from './views/NotFoundView'
 import LogoutView from './views/LogoutView'
-import { useState } from 'react'
 
 import { useSelector } from 'react-redux'
 
