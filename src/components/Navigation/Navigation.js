@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux'
+import { authSelectors } from '../../redux/auth'
 import { Link } from 'react-router-dom'
 import { Nav } from './Navigation.styled'
 
 export default function Navigation() {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
   return (
     <Nav>
       <Link
@@ -12,9 +15,11 @@ export default function Navigation() {
       >
         Home
       </Link>
-      <Link className="display:block" to="/todos">
-        ToDo
-      </Link>
+      {isLoggedIn && (
+        <Link className="display:block" to="/todos">
+          ToDo
+        </Link>
+      )}
     </Nav>
   )
 }
